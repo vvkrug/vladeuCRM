@@ -21,11 +21,11 @@ const loginSlice = createSlice({
       const { username, password } = action.payload;
       if (username === 'admin' && password === 'admin') {
         const token = generateToken();
-        console.log(token, "Ваш случайный токен:")
+        // console.log(token, "Ваш случайный токен:")
         localStorage.setItem("accessToken", token)
         state.isAuthenticated = true;
         state.isLogOut = false;
-        console.log(state.isAuthenticated, "Ваш случайный токен:")
+        // console.log(state.isAuthenticated, "Ваш случайный токен:")
         state.error = null;
       } else {
         state.error = 'Ой.. при входе в систему что-то пошло не так.';

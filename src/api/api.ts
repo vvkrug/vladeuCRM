@@ -8,3 +8,19 @@ export const api = axios.create({
 });
 
 export const fetchUsers = () => api.get('/users');
+export const fetchTodos = () => api.get('/todos');
+export const fetchProductByLaptops = () => api.get('/products/category/laptops');
+export const fetchProductBySmartPhones = () => api.get('/products/category/smartphones');
+export const fetchProductByAutomotive = () => api.get('/products/category/automotive');
+
+export const updateTodo = (id: number, data: { completed: boolean }) => {
+  return api.put(`/todos/${id}`, JSON.stringify(data));
+};
+
+export const deleteTodo = (id: number) => {
+  return api.delete(`/todos/${id}`);
+};
+
+export const addTodo = (newTodo: { userId: number; todo: string; completed: boolean }) => {
+  return api.post(`/todos/add`, JSON.stringify(newTodo));
+};

@@ -6,8 +6,9 @@ import {
 } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUserAsync } from '../features/userSlice';
-import { AppDispatch, RootState } from '../store/store';
+import { tableHeadList } from '../../data';
+import { fetchUserAsync } from '../../features/userSlice';
+import { AppDispatch, RootState } from '../../store/store';
 
 const UsersTable: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -22,20 +23,17 @@ const UsersTable: React.FC = () => {
   }, [status, dispatch]);
 
   return (
-    <Box sx={{ width: '70%', }}>
-      <Paper sx={{ width: '100%', mb: 2, mx:5 }}>
+    <>
+    <Box sx={{ width: '100%'}}>
+      <Paper sx={{ width: '100%', mb: 2}}>
         <TableContainer sx={{maxHeight: 600}}>
         <Table stickyHeader aria-label="таблица">
-						<TableHead className='bg-stone-300'>
+            <TableHead className='!bg-[#eae8e4] !shadow-md !shadow-stone-200'>
               <TableRow style={{fontWeight: 'bold'}}>
-                <TableCell>Аватарка</TableCell>
-                <TableCell>Имя</TableCell>
-                <TableCell>Фамилия</TableCell>
-                <TableCell>Возраст</TableCell>
-                <TableCell>Пол</TableCell>
-                <TableCell>Почта</TableCell>
-                <TableCell>Телефон</TableCell>
-                <TableCell>Дата рождения</TableCell>
+                {tableHeadList.map((head) => (
+                    <TableCell className='!bg-[#f4f3f1] !font-bold !text-emerald-800 !border-emerald-700'>{head}</TableCell>
+                ))
+                }
               </TableRow>
             </TableHead>
             <TableBody>
@@ -56,6 +54,7 @@ const UsersTable: React.FC = () => {
         </TableContainer>
       </Paper>
     </Box>
+    </>
   );
 };
 

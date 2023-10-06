@@ -27,7 +27,7 @@ const LoginForm: React.FC = () => {
 
 const handleLogin = () => {
   dispatch(login(formValues));
-  console.log('Login Button Clicked');
+  // console.log('Клик по кнопке входа');
 };
 
   if(isAuthenticated) {

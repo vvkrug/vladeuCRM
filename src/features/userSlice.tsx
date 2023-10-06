@@ -28,7 +28,7 @@ interface User {
 
 export const fetchUserAsync = createAsyncThunk('users/fetchUsers', async() => {
     const response = await fetchUsers();
-    console.log(response, "Ответ:")
+    // console.log(response, "Ответ:")
     return response?.data?.users;
 })
 
